@@ -5,21 +5,21 @@ const triviaModel = require("../model/trivia.model")
 const triviaController = async (req, res) => {
     const passedNum = req.query.number;
 
-    const num = parseInt(passedNum);
-
-    if (!num) {
+    if (!passedNum) {
         return res.status(400).json({
             "number": null,
             error: true
         });
     }
     
-    if (isNaN(num)) {
+    if (isNaN(passedNum)) {
         return res.status(400).json({
             "number": "alphabet",
             error: true
         });
     }
+
+    const num = parseInt(passedNum);
 
     const result = {
         number: num,
