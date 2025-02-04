@@ -9,7 +9,7 @@ const triviaController = async (req, res) => {
     
     if (!num || isNaN(num)) {
         return res.status(400).json({
-            "number": "Invalid number or entry",
+            "number": "alphabet",
             error: true
         });
     }
