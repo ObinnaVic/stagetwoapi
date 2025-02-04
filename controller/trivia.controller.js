@@ -6,8 +6,15 @@ const triviaController = async (req, res) => {
     const passedNum = req.query.number;
 
     const num = parseInt(passedNum);
+
+    if (!num) {
+        return res.status(400).json({
+            "number": null,
+            error: true
+        });
+    }
     
-    if (!num || isNaN(num)) {
+    if (isNaN(num)) {
         return res.status(400).json({
             "number": "alphabet",
             error: true
